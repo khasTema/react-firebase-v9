@@ -52,10 +52,3 @@ export default function Home() {
         </div>
     )
 }
-
-// <Button 
-//     variant='contained' 
-//     onClick={handleLogOut}
-// >
-//     Log Out
-// </ Button>

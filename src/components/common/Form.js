@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import {TextField, InputAdornment, IconButton} from '@mui/material';
-// import { InputAdornment, IconButton } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-// import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Button from './Button'
 
 export default function BasicTextFields({title, setEmail, setPassword, handleAction}) {
