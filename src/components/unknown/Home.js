@@ -32,7 +32,7 @@ export default function Home() {
                     fontWeigh: '600',
                     color: '#7d41a6'
                 }}
-                title='Home Page' 
+                title='Welcome' 
                 action={
                     <Button 
                         sx={{
