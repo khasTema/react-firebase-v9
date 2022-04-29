@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import Button from './Button'
 
 export default function BasicTextFields({title, setEmail, setPassword, handleAction}) {
+
     return(
         <div>
             <div className='heading-container'>
@@ -22,12 +23,14 @@ export default function BasicTextFields({title, setEmail, setPassword, handleAct
                 <TextField 
                     id='email' 
                     label='Enter Email' 
+                    type='email'
                     variant='outlined'
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <TextField 
                     id='password' 
                     label='Enter Password' 
+                    type='password'
                     variant='outlined'
                     onChange={(e) => setPassword(e.target.value)}
                 />

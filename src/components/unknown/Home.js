@@ -7,7 +7,7 @@ export default function Home() {
 
     const handleLogOut = () => {
         sessionStorage.removeItem('Auth Token')
-        navigate('/login')
+        navigate('/')
     }
 
     useEffect(() => {
@@ -18,9 +18,9 @@ export default function Home() {
         }
 
         if(!authToken){
-            navigate('/login')
+            navigate('/')
         }
-
+        // eslint-disable-next-line
     }, [])
 
     return (
