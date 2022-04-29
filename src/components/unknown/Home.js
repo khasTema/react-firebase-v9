@@ -1,14 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CardHeader , Button } from '@mui/material';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 export default function Home() {
+
+    const [ userName, setUsername ] = useState('');
+
     let navigate = useNavigate();
 
     const handleLogOut = () => {
         sessionStorage.removeItem('Auth Token')
         navigate('/')
     }
+
+    const auth = getAuth();
+    onAuthStateChanged( auth, (user) => {
+        setUsername(user.email.slice(0, user.email.indexOf('@')))
+    } )
+
 
     useEffect(() => {
         let authToken = sessionStorage.getItem('Auth Token');
@@ -32,7 +42,7 @@ export default function Home() {
                     fontWeigh: '600',
                     color: '#7d41a6'
                 }}
-                title='Welcome' 
+                title={`Welcome, ${userName}!!!`} 
                 action={
                     <Button 
                         sx={{
