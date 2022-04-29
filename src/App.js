@@ -2,12 +2,12 @@
 import './App.css';
 import Form from './components/common/Form';
 import Home from './components/unknown/Home';
-import { 
-  BrowserRouter as Router, 
+import {  
   Routes, 
   Route,
   useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+// eslint-disable-next-line
 import { app } from './firebase-config';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 
@@ -18,6 +18,14 @@ function App() {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    let authToken = sessionStorage.getItem('Auth Token')
+
+    if(authToken){
+      navigate('/home')
+    }
+  }, [])
+
   const handleAction = (id) => {
     const authentification = getAuth();
     if (id === 2) {
@@ -26,7 +34,14 @@ function App() {
           sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
           navigate('/home')
         })
+    }
 
+    if (id === 1) {
+      signInWithEmailAndPassword(authentification, email, password)
+        .then((response) => {
+          navigate('/home')
+          sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
+        })
     }
   }
 
