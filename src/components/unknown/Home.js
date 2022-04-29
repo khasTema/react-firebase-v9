@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Button from '@mui/material/Button';
+import { CardHeader , Button } from '@mui/material';
 
 export default function Home() {
     let navigate = useNavigate();
@@ -25,15 +25,37 @@ export default function Home() {
 
     return (
         <div>
-            <h3>
-                Home Page
-            </h3>
-            <Button 
-                variant='contained' 
-                onClick={handleLogOut}
-            >
-                Log Out
-            </ Button>
+            <CardHeader 
+                sx={{
+                    textAlign: 'left',
+                    backgroundColor: '#0098ffbf',
+                    fontWeigh: '600',
+                    color: '#7d41a6'
+                }}
+                title='Home Page' 
+                action={
+                    <Button 
+                        sx={{
+                            color: '#fff',
+                            fontWeight: '600',
+                            backgroundColor: '#7d41a6',
+                            '&:hover': {
+                                backgroundColor: 'orange'
+                            }
+                        }}
+                        variant='contained'
+                        onClick={handleLogOut}
+                    >
+                        Log Out
+                    </Button>}
+            />
         </div>
     )
 }
+
+// <Button 
+//     variant='contained' 
+//     onClick={handleLogOut}
+// >
+//     Log Out
+// </ Button>
