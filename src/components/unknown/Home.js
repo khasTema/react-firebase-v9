@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CardHeader , Button } from '@mui/material';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import ProfileForm from '../pages/ProfileForm';
 
 export default function Home() {
 
@@ -40,7 +41,8 @@ export default function Home() {
                     textAlign: 'left',
                     backgroundColor: '#0098ffbf',
                     fontWeigh: '600',
-                    color: '#7d41a6'
+                    color: '#7d41a6',
+                    marginBottom: '2em'
                 }}
                 title={`Welcome, ${userName}!!!`} 
                 action={
@@ -59,6 +61,7 @@ export default function Home() {
                         Log Out
                     </Button>}
             />
+            <ProfileForm/>
         </div>
     )
 }
