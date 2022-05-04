@@ -3,7 +3,7 @@ import { Box, Container, TextField, Typography } from '@mui/material';
 import Button from '../common/Button'
 
 
-function ProfileForm () {
+function ProfileForm ({handleProfileFilled}) {
 
     const [ firstName, setFirstName ] = useState('');
     const [ lastName, setLastName ] = useState('');
@@ -54,7 +54,7 @@ function ProfileForm () {
                         variant='outlined'
                         id='phone-number'
                         label='Phone Number'
-                        type='pnone'
+                        type='tel'
                         value={phoneNumber}
                         onChange={(e) => setPhoneNumber(e.target.value)}
                     />

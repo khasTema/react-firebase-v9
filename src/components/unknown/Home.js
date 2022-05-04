@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { CardHeader , Button } from '@mui/material';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import ProfileForm from '../pages/ProfileForm';
+// import ProfileCard from '../pages/ProfileCard'
 
 export default function Home() {
 
@@ -34,6 +35,9 @@ export default function Home() {
         // eslint-disable-next-line
     }, [])
 
+
+ 
+
     return (
         <div>
             <CardHeader 
@@ -41,7 +45,7 @@ export default function Home() {
                     textAlign: 'left',
                     backgroundColor: '#0098ffbf',
                     fontWeigh: '600',
-                    color: '#7d41a6',
+                    color: '#fff',
                     marginBottom: '2em'
                 }}
                 title={`Welcome, ${userName}!!!`} 
@@ -61,7 +65,7 @@ export default function Home() {
                         Log Out
                     </Button>}
             />
-            <ProfileForm/>
+            <ProfileForm />
         </div>
     )
 }
